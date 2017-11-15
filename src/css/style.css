@@ -71,8 +71,8 @@ header .navbar-brand h1 {
 }
 .current-time {
     text-align: center;
-    font-size: 72px;
-    font-weight: 400;
+    font-size: 100px;
+    font-weight: 600;
     cursor:pointer;
 }
 
