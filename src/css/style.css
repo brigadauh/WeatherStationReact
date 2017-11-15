@@ -1,0 +1,196 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,800|Roboto+Slab:400,100,300,700);
+
+/**  Basic Page CSS **/
+html {
+  position: relative;
+  min-height: 100%;
+}
+body{
+  font-family: "Roboto Slab", sans-serif;
+  font-weight: 300;
+  font-size: 2em;
+  font-size: 16px;
+  margin: 0 auto 100px auto; /* bottom = footer height */
+  padding: 0px;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 100;
+  margin: 0;
+}
+
+/**  Header Navigation **/
+.container {
+    width:100% !important;
+    padding:0 !important;
+}
+.navbar-header {
+    width:100%;
+    margin-left:0px!important;
+}
+.navbar-brand {
+    padding:0 0 0 0 !important;
+    width:100%;
+    margin: 0 0 0 0 !important;
+}
+header .navbar {
+  margin-bottom: 0;
+}
+
+header .navbar-default {
+  background-color: #337ab7;
+  border: none;
+  border-radius: 0;
+  padding: 10px 0;
+}
+
+/**  Navbar Brand **/
+
+header .navbar-brand img{
+    width: 50px;
+    display:inline-block;
+    margin-left:25px;
+    margin-top: -5px;
+}
+
+header .navbar-brand h1 {
+  color: white;
+  margin: 0;
+  font-size: 1.1em;
+  font-weight: 400;
+  display: inline-block;
+  line-height:50px;
+  width:calc(100% - 80px);
+  text-align:center;
+  padding-right:80px;
+}
+.navbar-nav {
+    margin: 0px -15px;
+}
+.current-time {
+    text-align: center;
+    font-size: 72px;
+    font-weight: 400;
+    cursor:pointer;
+}
+
+.main {
+  background: white;
+  padding: 30px 0;
+}
+/**  Footer **/
+
+footer {
+  background: #337ab7;
+  color: white;
+  font-size: .8em;
+  padding: 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
+  overflow:hidden;
+
+}
+
+footer a {
+  color: #E0E6AE;
+}
+
+footer a:hover {
+  color: #EEC856 !important;
+}
+
+footer .phone {
+  font-size: 1.4em;
+  font-weight: 700;
+  color: #E0E6AE;
+}
+
+footer .navbar {
+  margin-bottom: 0;
+  min-height: 0;
+}
+
+footer .navbar-default {
+  background-color: transparent;
+  border: none;
+  margin-right: 40px;
+}
+
+footer .navbar-nav>li a {
+  padding-top: 0;
+  padding-bottom: 0;
+  text-decoration: underline;
+  color: #EEC856 !important;
+}
+footer .content {
+    line-height:60px;
+}
+footer .content p {
+    margin:0px;
+}
+
+
+
+/**  Interface Styles **/
+
+.apt-addheading {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
+
+.item-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  margin: 10px 5%;
+  font-size: 1rem;
+}
+
+.item-list .pet-item {
+    border-bottom: 1px dotted gray;
+    padding-bottom: 10px;
+    max-width: 550px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.item-list .pet-item:last-child {
+  border-bottom: none;
+}
+
+.item-list .pet-name {
+  font-weight: 600;
+  color: #337ab7;
+  font-size: 1.3em;
+  line-height: 100%;
+}
+
+.item-list .pet-info {
+  font-size: 1.7em;
+}
+
+.item-list .label-item {
+  font-weight: 600;
+  color: #667B82;
+}
+
+.item-list .pet-delete {
+  font-size: 1.2em;
+}
+
+.item-list .apt-date {
+  font-style: italic;
+  padding-right:5px;
+}
+
+.item-list .apt-notes {
+
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "temp": "46.8",
+    "humidity": "55%",
+    "DateTime": "2016-06-20 15:30",
+    "Notes": "Partly sunny"
+  },
+  {
+    "temp": "50.0",
+    "humidity": "60%",
+    "DateTime": "2016-06-24 08:30",
+    "Notes": "Fair"
+  },
+  {
+    "temp": "48.4",
+    "humidity": "48%",
+    "DateTime": "2016-06-22 15:50",
+    "Notes": "Partly cloudy"
+  },
+  {
+    "temp": "52.8",
+    "humidity": "60%",
+    "DateTime": "2016-06-21 9:15",
+    "Notes": "Fog"
+  }
+]
