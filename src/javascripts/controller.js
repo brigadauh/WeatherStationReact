@@ -11,6 +11,15 @@ function getDataCurrent(content) {
         getDataCurrent(content);
     },60000);
 }
+function getDataForecast(content) {
+    fetch(`/api/weather/forecast`)
+    .then(result=>result.json())
+    .then(forecast=>content.setState({forecast}));
+
+    setTimeout(() => {
+        getDataForecast(content);
+    },60000*60);
+}
 function getTime(content,isSeconds) {
     var d=new Date();
     var cTime=d.toLocaleTimeString();
@@ -22,7 +31,7 @@ function getTime(content,isSeconds) {
         cTime=cTime.replace(/:\d+ /, ' ');
         setTimeout( () => {
             getTime(content,false);
-        },60000);
+        },1000);
     }
     else {
         setTimeout( () => {
@@ -30,6 +39,7 @@ function getTime(content,isSeconds) {
         },1000);
 
     }
+    if (isSeconds || cSeconds=="00" || cSeconds=="01")
     content.setState({
       curTime : cTime
     })

@@ -10,6 +10,7 @@ var MainInterface = React.createClass({
     return {
       tempHist: [],
       tempCurr: [],
+      forecast: [],
       curTime: ""
     } //return
   }, //getInitialState
@@ -21,8 +22,9 @@ var MainInterface = React.createClass({
         tempHist: tHist
       }); //setState
     }.bind(this));
-    //toDo: wrap this into a function
+
     getDataCurrent(this);
+    getDataForecast(this);
     getTime(this, true);
 
   }, //componentDidMount
@@ -35,9 +37,10 @@ var MainInterface = React.createClass({
     var tempHistRaw = this.state.tempHist;
     var tempCurrRaw = this.state.tempCurr;
     var tempCurrData = tempCurrRaw.data;
-    //console.log('state',this.state);
     var tempHistHtml=[];
     var tempCurrHtml=[];
+    console.log('forecast',this.state.forecast);
+
     /*
     tempHistHtml=tempHistRaw.map(function(item, index) {
       return (
