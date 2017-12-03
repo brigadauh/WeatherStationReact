@@ -14,7 +14,11 @@ function getDataCurrent(content) {
 function getDataForecast(content) {
     fetch(`/api/weather/forecast`)
     .then(result=>result.json())
-    .then(forecast=>content.setState({forecast}));
+    .then(forecast=>{
+        const data=forecast.data;
+        content.setState({forecast:data});
+
+    });
 
     setTimeout(() => {
         getDataForecast(content);

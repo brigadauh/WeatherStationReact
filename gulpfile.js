@@ -48,7 +48,7 @@ gulp.task('webserver', function() {
   gulp.src( app )
     .pipe(webserver({
         livereload: true,
-        open: true,
+
         port:8001,
         proxies:[
                 {
@@ -59,4 +59,4 @@ gulp.task('webserver', function() {
     }));
 });
 
-gulp.task('default', ['watch', 'html', 'js','javascripts', 'css','images', 'webserver']);
+gulp.task('default', [ 'watch', 'html', 'js','javascripts', 'css','images', 'webserver']);

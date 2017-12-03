@@ -34,14 +34,12 @@ var MainInterface = React.createClass({
   }, //componentWillUnmount
 
   render: function() {
-    var tempHistRaw = this.state.tempHist;
-    var tempCurrRaw = this.state.tempCurr;
-    var tempCurrData = tempCurrRaw.data;
+
+    //console.log('forecast',this.state.forecast);
     var tempHistHtml=[];
-    var tempCurrHtml=[];
-    console.log('forecast',this.state.forecast);
 
     /*
+    var tempHistRaw = this.state.tempHist;
     tempHistHtml=tempHistRaw.map(function(item, index) {
       return (
         <Weatherhistory key = { index }
@@ -50,19 +48,15 @@ var MainInterface = React.createClass({
       )
     }.bind(this));
     */
-    if (tempCurrData && tempCurrData.length>0){
-        tempCurrHtml=tempCurrData.map(function(item, index) {
-          return (
-            <Weathernow key = { index }
-              tempNow = { item }
-              />
-          )
-        }.bind(this));
-    }
+
 
     return (
       <div className="interface">
-        <ul className="item-list media-list">{tempCurrHtml}
+        <ul className="item-list media-list">
+        <Weathernow
+          tempNow = {this.state.tempCurr.data && this.state.tempCurr.data.length>0 ? this.state.tempCurr.data[0] : []}
+          dataForecast={this.state.forecast && this.state.forecast.length>0 ? this.state.forecast : []}
+          />
         <li id="current_time" className="current-time" onClick={(e) => getTime(this,true)}> {this.state.curTime} </li>
         {tempHistHtml}</ul>
       </div>
