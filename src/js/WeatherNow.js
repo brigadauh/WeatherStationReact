@@ -23,6 +23,10 @@ var WeatherNow = React.createClass({
       if (tempC<tempC_prev) {tempTrend=downArrow;}
 
       //console.log('forecasts',forecasts );
+      let forecastMaxTempPrev=-273;
+      let forecastMinTempPrev=100;
+      let minStop=false;
+      let maxStop=false;
       for (let i in forecasts) {
           let forecastDateTime=forecasts[i]["forecast_date"];
           let forecastDate=forecastDateTime.substring(0,10);
@@ -33,22 +37,24 @@ var WeatherNow = React.createClass({
               break;
           }
           else {
-              let forecastMaxTemp=(Number(forecast.main.temp_max)-273).toFixed(0) || "n/a";
-              let forecastMinTemp=(Number(forecast.main.temp_min)-273).toFixed(0) || "n/a";
-              if (forecastMaxTemp > maxTempC) {maxTempC=forecastMaxTemp; maxTempTime=forecastDateTime;}
-              if (forecastMinTemp < minTempC) {minTempC=forecastMinTemp; minTempTime=forecastDateTime;}
+              let forecastMaxTemp=(Number(forecast.main.temp_max)-273) || -273;
+              let forecastMinTemp=(Number(forecast.main.temp_min)-273) || +100;
+              if (forecastMaxTemp < forecastMaxTempPrev) {maxStop=true;} // stop when max temperature started to decline
+              if (forecastMinTemp > forecastMinTempPrev) {minStop=true;} // stop when min temperature started to rise
+              if (forecastMaxTemp > maxTempC && !maxStop ) {maxTempC=forecastMaxTemp; maxTempTime=forecastDateTime;}
+              if (forecastMinTemp < minTempC && !minStop) {minTempC=forecastMinTemp; minTempTime=forecastDateTime;}
           }
       }
       if (minTempC==100){minTempC="n/a"} else {
-          if (minTempC>0) {minTempC="+"+minTempC;}
+          if (minTempC>0) {minTempC="+"+minTempC.toFixed(0);}
           if (minTempC=="-0") {minTempC="0";}
       }
       if (maxTempC==-273){maxTempC="n/a"} else {
-          if (maxTempC>0) {maxTempC="+"+maxTempC;}
+          if (maxTempC>0) {maxTempC="+"+maxTempC.toFixed(0);}
           if (maxTempC=="-0") {maxTempC="0";}
       }
       let tempC_forecast=(tempTrend==downArrow) ? minTempC : maxTempC;
-      let tempC_forecast_Time=(tempTrend==downArrow) ? minTempTime : maxTempC;
+      let tempC_forecast_Time=(tempTrend==downArrow) ? minTempTime : maxTempTime;
       //console.log('forecast:',forecasts);
     return(
         <div>
