@@ -10,6 +10,7 @@ var WeatherNow = React.createClass({
       const tempC_prev=Number(this.props.tempNow.recent_temp);
       const forecasts=this.props.dataForecast || {};
       const currDate=currentDate();
+      const source = (this.props.tempNow.source =='') ? '(local)':'('+this.props.tempNow.source+')';
       const minMaxPeriod=addHours(currDate, 12);
       const downArrow='\u2193';
       const upArrow='\u2191';
@@ -27,6 +28,7 @@ var WeatherNow = React.createClass({
       let forecastMinTempPrev=100;
       let minStop=false;
       let maxStop=false;
+      let forecastDateTimePrev = null;
       for (let i in forecasts) {
           let forecastDateTime=forecasts[i]["forecast_date"];
           let forecastDate=forecastDateTime.substring(0,10);
@@ -44,7 +46,7 @@ var WeatherNow = React.createClass({
               if (forecastMinTemp < minTempC && !minStop) {minTempC=forecastMinTemp; minTempTime=forecastDateTime;}
               forecastMaxTempPrev = forecastMaxTemp;
               forecastMinTempPrev = forecastMinTemp;
-              console.log('forecast',forecastDateTime,forecastMaxTemp,forecastMinTemp );
+              //console.log('forecast',forecastDateTime,forecastMaxTemp,forecastMinTemp );
           //}
       }
       if (minTempC==100){minTempC="n/a"} else {
@@ -72,6 +74,7 @@ var WeatherNow = React.createClass({
                 </div>
                 <div className="misc-data datetime">
                     <span id="temp_humid_last_reported">{this.props.tempNow.recorded_time}</span>
+                    <span id="temp_humid_source">{source}</span>
                 </div>
                 <div>
                     <span id="min_temp" className="temp">{tempC_forecast}&deg;</span>

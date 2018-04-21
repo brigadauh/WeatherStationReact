@@ -9,7 +9,7 @@ function getDataCurrent(content) {
     .then(tempCurr=>content.setState({tempCurr}));
     setTimeout(() => {
         getDataCurrent(content);
-    },60000);
+    },120000);
 }
 function getDataForecast(content) {
     fetch(`/api/weather/forecast`)
